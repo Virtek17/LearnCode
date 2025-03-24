@@ -89,6 +89,11 @@ export const CardTopic = ({ id }) => {
       <div
         style={{
           padding: "0px 20px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          gap: "100px",
+          border: "1px solid red",
         }}
       >
         {/* <div>Карточки по теме: {topic}</div> */}
@@ -100,6 +105,7 @@ export const CardTopic = ({ id }) => {
             question={card.cards[activeCard].question}
             answer={card.cards[activeCard].answer}
             flipped={flipped}
+            style={{ flex: "1" }}
           />
         ) : (
           <div>Нет данных для этой темы</div>
@@ -114,7 +120,7 @@ export const CardTopic = ({ id }) => {
         )}
 
         <Button
-          style={{ display: "block" }}
+          style={{ flex: "2" }}
           stretched={true}
           onClick={() => setFlipped(!flipped)}
         >

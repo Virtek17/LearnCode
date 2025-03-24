@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import style from "./Card.module.css";
+import style from "./Card.module.scss";
 import kaban from "../../assets/Kabans/kaban-2.png";
 import { Div, Group } from "@vkontakte/vkui";
 import { useAppearance } from "@vkontakte/vk-bridge-react";
@@ -7,28 +7,42 @@ import { useState } from "react";
 
 export const Card = ({ question, answer, card, currentQuestion, flipped }) => {
   const cardArray = card.cards;
-  const apperance = useAppearance(); // получить текущую тему
+  const appearance = useAppearance(); // получить текущую тему
 
   return (
     <Div className={style.root}>
       <Div
-        className={`${style.card} ${
-          apperance == "light" ? style.card__light : style.card__dark
-        }`}
+        className={`
+          ${style.card} 
+          ${flipped ? style.flipped : ""} `}
       >
-        <Div className={`${style.content} ${flipped ? style.flipped : ""}`}>
-          <Div className={style.front}>
-            <div className={style.cardHeader}>
-              <h1 className={style.cardTitle}>Вопрос</h1>
-              <div className={style.cardNumber}>
-                {currentQuestion + 1}/{cardArray.length}
-              </div>
+        <Div
+          className={`
+          ${style.front} 
+          ${appearance === "light" ? style.card__light : style.card__dark}`}
+        >
+          <div className={style.card__front_header}>
+            <h1 className={style.card__title}>Вопрос</h1>
+            <div className={style.card__number}>
+              {currentQuestion + 1}/{cardArray.length}
             </div>
-            <h1 className={style.question}>{question}</h1>
-            {/* <p>{answer}</p> */}
-            <img className={style.img} src={kaban} />
-          </Div>
-          <Div className={style.back}>{answer}</Div>
+          </div>
+          <h2 className={style.question}>{question}</h2>
+          <img className={style.img} src={kaban} />
+        </Div>
+
+        <Div
+          className={`
+          ${style.back}  
+          ${appearance === "light" ? style.card__light : style.card__dark}`}
+        >
+          <div className={style.card__front_header}>
+            <h1 className={style.card__title}>Ответ</h1>
+            <div className={style.card__number}>
+              {currentQuestion + 1}/{cardArray.length}
+            </div>
+          </div>
+          <h2 className={style.question}>{answer}</h2>
         </Div>
       </Div>
     </Div>
