@@ -1,0 +1,24 @@
+:root {
+  /* Акценты */
+  --color-success: #4cd964;
+  --color-: #ab9871;
+  --color-: #adb8ff;
+  --color-error: #eb4250;
+  --color-warning: #ffa000;
+
+  /* Светлая тема */
+  --color-light-primary: #000000;
+  --color-light-subhead: #6d7885;
+  --color-light-secondary: #818c99;
+  --color-light-tetritary: #99a2ad;
+  --color-light-bg: #ffffff;
+  --color-light-accent: #2d81e0;
+
+  /* Темная тема */
+  --color-dark-primary: #f5f5f5;
+  --color-dark-subhead: #5d5f61;
+  --color-dark-secondary: #2c2d2e;
+  --color-light-tetritary: #19191a;
+  --color-light-bg: #0a0a0a;
+  --color-light-accent: #529ef4;
+}

@@ -1,0 +1,27 @@
+@import "../../styles/variables.css";
+
+.root {
+  padding: 20px 15px;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-weight: bold;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: var(--color-success);
+}
+
+.days {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-warning);
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-light-subhead);
+}
