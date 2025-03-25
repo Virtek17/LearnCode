@@ -1,51 +1,56 @@
 import PropTypes from "prop-types";
 import style from "./Card.module.scss";
-import kaban from "../../assets/Kabans/kaban-2.png";
+import kaban from "../../assets/Kabans/kaban-2.svg";
 import { Div, Group } from "@vkontakte/vkui";
 import { useAppearance } from "@vkontakte/vk-bridge-react";
 import { useState } from "react";
+import { Icon20ErrorCircle } from "@vkontakte/icons";
 
 export const Card = ({ question, answer, card, currentQuestion, flipped }) => {
   const cardArray = card.cards;
   const appearance = useAppearance(); // получить текущую тему
 
   return (
-    <Div className={style.root}>
-      <Div
+    <div className={style.root}>
+      <div
         className={`
           ${style.card} 
           ${flipped ? style.flipped : ""} `}
       >
-        <Div
+        <div
           className={`
           ${style.front} 
           ${appearance === "light" ? style.card__light : style.card__dark}`}
         >
           <div className={style.card__front_header}>
-            <h1 className={style.card__title}>Вопрос</h1>
+            <div className={style.card__title}>Вопрос</div>
             <div className={style.card__number}>
               {currentQuestion + 1}/{cardArray.length}
             </div>
           </div>
-          <h2 className={style.question}>{question}</h2>
-          <img className={style.img} src={kaban} />
-        </Div>
+          <div className={style.question}>{question}</div>
+          <div className={style.img__row}>
+            <img className={style.img} src={kaban} />
+          </div>
+        </div>
 
-        <Div
+        <div
           className={`
           ${style.back}  
           ${appearance === "light" ? style.card__light : style.card__dark}`}
         >
           <div className={style.card__front_header}>
-            <h1 className={style.card__title}>Ответ</h1>
-            <div className={style.card__number}>
-              {currentQuestion + 1}/{cardArray.length}
-            </div>
+            <div className={style.card__title}>Ответ</div>
           </div>
-          <h2 className={style.question}>{answer}</h2>
-        </Div>
-      </Div>
-    </Div>
+          <div className={style.question}>{answer}</div>
+
+          <div className={style.card__back_bottom}>
+            <Icon20ErrorCircle />
+            Чекнуть теорию
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
 import { Card } from "../Components/Card/Card";
 import { useState } from "react";
+import "../styles/cardTopic.scss";
+import {
+  Icon24ThumbsUpOutline,
+  Icon24ThumbsDownOutline,
+} from "@vkontakte/icons";
 
 export const CardTopic = ({ id }) => {
   const { topic } = useParams(); // Получаем тему из URL
@@ -83,21 +88,17 @@ export const CardTopic = ({ id }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <Panel id={id}>
+    <Panel
+      id={id}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+      }}
+    >
       <PanelHeader>Карточки по теме {topic}</PanelHeader>
 
-      <div
-        style={{
-          padding: "0px 20px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          gap: "100px",
-          border: "1px solid red",
-        }}
-      >
-        {/* <div>Карточки по теме: {topic}</div> */}
-
+      <div className="row">
         {card ? (
           <Card
             card={card}
@@ -110,22 +111,32 @@ export const CardTopic = ({ id }) => {
         ) : (
           <div>Нет данных для этой темы</div>
         )}
-        {flipped == true ? (
-          <div style={{ margin: "20px", display: "flex", gap: "20px" }}>
-            <Button>Чет не вывез</Button>
-            <Button>Вкатил с лету</Button>
+
+        {flipped && (
+          <div className="buttons-wrapper">
+            <Button mode="outline" before={<Icon24ThumbsDownOutline />}>
+              Чет не вывез
+            </Button>
+            <Button
+              activated="true"
+              activeClassName="btnActive"
+              mode="outline"
+              before={<Icon24ThumbsUpOutline />}
+            >
+              Вкатил с лету
+            </Button>
           </div>
-        ) : (
-          ""
         )}
 
-        <Button
-          style={{ flex: "2" }}
-          stretched={true}
-          onClick={() => setFlipped(!flipped)}
-        >
-          {flipped == true ? "Далее" : "Проверить"}
-        </Button>
+        <div className="check-button">
+          <Button
+            style={{ flex: "2" }}
+            stretched={true}
+            onClick={() => setFlipped(!flipped)}
+          >
+            {flipped == true ? "Далее" : "Проверить"}
+          </Button>
+        </div>
       </div>
       <Tabbar>
         <MyTabbar />

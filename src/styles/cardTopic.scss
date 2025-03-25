@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 18px;
+  height: 75%;
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.check-button {
+  width: 100%;
+  
+}
+
+.btn {
+  display: flex;
+  gap: 12px;
+}
+
+.btnActive {
+  background-color: #bf49e7;
+  
+}

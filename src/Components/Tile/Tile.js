@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import style from "./tile.module.css";
 import { Group } from "@vkontakte/vkui";
 
-import kaban from "../../assets/Kabans/kabanello.svg";
+import kaban from "../../assets/Kabans/kaban-1.svg";
 
 const Tile = ({ title, text, progress, maxProgress = null, onClick }) => {
   const color = (progress, maxProgress) => {
@@ -19,11 +19,7 @@ const Tile = ({ title, text, progress, maxProgress = null, onClick }) => {
   };
 
   return (
-    <Group
-      // header={<Title className={style.title}>{title}</Title>}
-      className={style.root}
-      onClick={() => onClick()}
-    >
+    <Group className={style.root} onClick={() => onClick()}>
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
         <div className={style.text}>{text}</div>
