@@ -1,5 +1,12 @@
 import { useParams } from "@vkontakte/vk-mini-apps-router";
-import { Button, Panel, PanelHeader, Tabbar } from "@vkontakte/vkui";
+import {
+  Appearance,
+  Button,
+  Panel,
+  PanelHeader,
+  Tabbar,
+  useAppearance,
+} from "@vkontakte/vkui";
 import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
 import { Card } from "../Components/Card/Card";
@@ -83,9 +90,26 @@ export const CardTopic = ({ id }) => {
   ];
 
   const card = cardsForTopic.find((item) => item.title === topic); // Ищем карточку по topic
+
   const [activeCard, setActiveCard] = useState(0);
 
+  const appearance = useAppearance();
+
   const [flipped, setFlipped] = useState(false);
+
+  const [checked, setChecked] = useState(false);
+
+  // Нажать кнопку "Проверить" - кнопка не активная, карточка переворачивается
+  const checkCard = () => {
+    setChecked(!checked);
+    setFlipped(!flipped);
+  };
+
+  const nextCard = () => {
+    setActiveCard(activeCard + 1);
+    setChecked(!checked);
+    setFlipped(!flipped);
+  };
 
   return (
     <Panel
@@ -99,7 +123,7 @@ export const CardTopic = ({ id }) => {
       <PanelHeader>Карточки по теме {topic}</PanelHeader>
 
       <div className="row">
-        {card ? (
+        {card.cards.length > activeCard ? (
           <Card
             card={card}
             currentQuestion={activeCard}
@@ -109,19 +133,27 @@ export const CardTopic = ({ id }) => {
             style={{ flex: "1" }}
           />
         ) : (
-          <div>Нет данных для этой темы</div>
+          <div>карточки кончились</div>
         )}
 
         {flipped && (
           <div className="buttons-wrapper">
-            <Button mode="outline" before={<Icon24ThumbsDownOutline />}>
+            <Button
+              size="l"
+              mode="outline"
+              before={<Icon24ThumbsDownOutline />}
+              onClick={() => nextCard()}
+            >
               Чет не вывез
             </Button>
+
             <Button
+              size="l"
               activated="true"
               activeClassName="btnActive"
               mode="outline"
               before={<Icon24ThumbsUpOutline />}
+              onClick={() => nextCard()}
             >
               Вкатил с лету
             </Button>
@@ -130,9 +162,14 @@ export const CardTopic = ({ id }) => {
 
         <div className="check-button">
           <Button
-            style={{ flex: "2" }}
+            disabled={checked}
+            style={{
+              flex: "2",
+              background: appearance == "light" ? "#2D81E0" : "#529EF4",
+            }}
+            size="l"
             stretched={true}
-            onClick={() => setFlipped(!flipped)}
+            onClick={() => checkCard()}
           >
             {flipped == true ? "Далее" : "Проверить"}
           </Button>
