@@ -1,3 +1,4 @@
+// Vk импорты
 import { useParams } from "@vkontakte/vk-mini-apps-router";
 import {
   Appearance,
@@ -7,18 +8,26 @@ import {
   Tabbar,
   useAppearance,
 } from "@vkontakte/vkui";
-import PropTypes from "prop-types";
-import MyTabbar from "../Components/Tabbar/MyTabbar";
-import { Card } from "../Components/Card/Card";
-import { useState } from "react";
-import "../styles/cardTopic.scss";
 import {
   Icon24ThumbsUpOutline,
   Icon24ThumbsDownOutline,
 } from "@vkontakte/icons";
+import PropTypes from "prop-types";
+
+// ИМПОРТЫ КАСТОМНЫХ КОМПОНЕНТОВ
+import { Card } from "../Components/Card/Card";
+import { useState } from "react";
+import MyTabbar from "../Components/Tabbar/MyTabbar";
+
+// ИМПОРТЫ СТИЛЕЙ
+import "../styles/cardTopic.scss";
 
 export const CardTopic = ({ id }) => {
+  const [activeCard, setActiveCard] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [checked, setChecked] = useState(false);
   const { topic } = useParams(); // Получаем тему из URL
+  const appearance = useAppearance(); // Для управления цветовой темой
 
   const cardsForTopic = [
     {
@@ -91,13 +100,9 @@ export const CardTopic = ({ id }) => {
 
   const card = cardsForTopic.find((item) => item.title === topic); // Ищем карточку по topic
 
-  const [activeCard, setActiveCard] = useState(0);
-
-  const appearance = useAppearance();
-
-  const [flipped, setFlipped] = useState(false);
-
-  const [checked, setChecked] = useState(false);
+  if (!card) {
+    return <div>Тема не найдена</div>;
+  }
 
   // Нажать кнопку "Проверить" - кнопка не активная, карточка переворачивается
   const checkCard = () => {
@@ -105,6 +110,7 @@ export const CardTopic = ({ id }) => {
     setFlipped(!flipped);
   };
 
+  // Следующая карточка
   const nextCard = () => {
     setActiveCard(activeCard + 1);
     setChecked(!checked);
@@ -175,6 +181,7 @@ export const CardTopic = ({ id }) => {
           </Button>
         </div>
       </div>
+
       <Tabbar>
         <MyTabbar />
       </Tabbar>

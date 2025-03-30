@@ -11,17 +11,17 @@ import { TabbarItem } from "@vkontakte/vkui";
 import { useState, useEffect } from "react";
 
 import styles from "./MyTabbar.module.css";
+import { useLocation } from "@vkontakte/vk-mini-apps-router/dist/hooks/hooks";
 
 const MyTabbar = () => {
-  const [indicator, setIndicator] = useState("one");
+  const location = useLocation();
   const routeNavigator = useRouteNavigator();
 
   return (
     <>
       <TabbarItem
-        label="Гланая"
-        selected={indicator == "one"}
-        className={styles.root}
+        label="Главная"
+        selected={location.pathname === "/"}
         onClick={() => routeNavigator.go("/")}
       >
         <Icon28HomeOutline fill="currentColor" />
@@ -29,8 +29,7 @@ const MyTabbar = () => {
 
       <TabbarItem
         label="Тесты"
-        selected={indicator == "/two"}
-        className={styles.root}
+        selected={location.pathname === "/tests"}
         onClick={() => routeNavigator.go("/tests")}
       >
         <Icon28PenStackOutline fill="currentColor" />
@@ -38,8 +37,7 @@ const MyTabbar = () => {
 
       <TabbarItem
         label="Карточки"
-        selected={indicator == "/three"}
-        className={styles.root}
+        selected={location.pathname.startsWith("/cards")}
         onClick={() => routeNavigator.go("/cards")}
       >
         <Icon28Cards2Outline fill="currentColor" />
@@ -47,8 +45,7 @@ const MyTabbar = () => {
 
       <TabbarItem
         label="Теория"
-        selected={indicator == "/four"}
-        className={styles.root}
+        selected={location.pathname === "/theory"}
         onClick={() => routeNavigator.go("/theory")}
       >
         <Icon28BookSpreadOutline fill="currentColor" />
@@ -56,5 +53,50 @@ const MyTabbar = () => {
     </>
   );
 };
+
+// const MyTabbar = () => {
+//   const [indicator, setIndicator] = useState("one");
+//   const routeNavigator = useRouteNavigator();
+
+//   return (
+//     <>
+//       <TabbarItem
+//         label="Гланая"
+//         selected={indicator == "one"}
+//         className={styles.root}
+//         onClick={() => routeNavigator.go("/")}
+//       >
+//         <Icon28HomeOutline fill="#2688eb" />
+//       </TabbarItem>
+
+//       <TabbarItem
+//         label="Тесты"
+//         selected={indicator == "/two"}
+//         className={styles.root}
+//         onClick={() => routeNavigator.go("/tests")}
+//       >
+//         <Icon28PenStackOutline fill="#2688eb" />
+//       </TabbarItem>
+
+//       <TabbarItem
+//         label="Карточки"
+//         selected={indicator == "/three"}
+//         className={styles.root}
+//         onClick={() => routeNavigator.go("/cards")}
+//       >
+//         <Icon28Cards2Outline fill="#2688eb" />
+//       </TabbarItem>
+
+//       <TabbarItem
+//         label="Теория"
+//         selected={indicator == "/four"}
+//         className={styles.root}
+//         onClick={() => routeNavigator.go("/theory")}
+//       >
+//         <Icon28BookSpreadOutline fill="#2688eb" />
+//       </TabbarItem>
+//     </>
+//   );
+// };
 
 export default MyTabbar;

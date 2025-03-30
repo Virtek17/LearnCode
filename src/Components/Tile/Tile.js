@@ -45,7 +45,6 @@ export default Tile;
 Tile.propTypes = {
   title: PropTypes.string.isRequired, // Ожидаем число, обязательный пропс
   text: PropTypes.string.isRequired, // Ожидаем число, обязательный пропс
-  isLast: PropTypes.bool.isRequired,
   progress: PropTypes.number,
   maxProgress: PropTypes.number,
   onClick: PropTypes.func,

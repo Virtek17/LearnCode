@@ -23,9 +23,6 @@ export const routes = RoutesConfig.create([
   createRoot(DEFAULT_ROOT, [
     createView(DEFAULT_VIEW, [
       createPanel(DEFAULT_VIEW_PANELS.HOME, "/", []),
-      // createPanel(DEFAULT_VIEW_PANELS.TESTS, "tests", []),
-      // createPanel(DEFAULT_VIEW_PANELS.CARDS, "cards", []),
-      // createPanel(DEFAULT_VIEW_PANELS.THEORY, "theory", []),
 
       createPanel(
         DEFAULT_VIEW_PANELS.PERSIK,
