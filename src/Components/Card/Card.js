@@ -6,12 +6,19 @@ import { useAppearance } from "@vkontakte/vk-bridge-react";
 import { useState } from "react";
 import { Icon20ErrorCircle } from "@vkontakte/icons";
 
-export const Card = ({ question, answer, card, currentQuestion, flipped }) => {
+export const Card = ({
+  question,
+  answer,
+  card,
+  currentQuestion,
+  flipped,
+  onClick,
+}) => {
   const cardArray = card.cards;
   const appearance = useAppearance(); // получить текущую тему
 
   return (
-    <div className={style.root}>
+    <div className={style.root} onClick={() => onClick()}>
       <div
         className={`
           ${style.card} 

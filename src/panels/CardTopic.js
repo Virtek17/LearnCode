@@ -1,8 +1,9 @@
 // Vk импорты
-import { useParams } from "@vkontakte/vk-mini-apps-router";
+import { createModal, useParams } from "@vkontakte/vk-mini-apps-router";
 import {
   Appearance,
   Button,
+  Mark,
   Panel,
   PanelHeader,
   Tabbar,
@@ -23,9 +24,14 @@ import MyTabbar from "../Components/Tabbar/MyTabbar";
 import "../styles/cardTopic.scss";
 
 export const CardTopic = ({ id }) => {
-  const [activeCard, setActiveCard] = useState(0);
-  const [flipped, setFlipped] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [activeCard, setActiveCard] = useState(0); // активная карточка
+  const [flipped, setFlipped] = useState(false); // Переворот карточки
+  const [checked, setChecked] = useState(false); // Кнопка "Проверить"
+  const [mark, setMark] = useState(false); // Отображение кнопок оценки
+  const [marked, setMarked] = useState(false); // Оценен ли вопрос
+  const [fail, setFail] = useState(false); // не ответил на вопрос
+  const [success, setSuccess] = useState(false); // ответил на вопрос
+
   const { topic } = useParams(); // Получаем тему из URL
   const appearance = useAppearance(); // Для управления цветовой темой
 
@@ -104,17 +110,45 @@ export const CardTopic = ({ id }) => {
     return <div>Тема не найдена</div>;
   }
 
-  // Нажать кнопку "Проверить" - кнопка не активная, карточка переворачивается
-  const checkCard = () => {
-    setChecked(!checked);
-    setFlipped(!flipped);
+  const checkOrNextAnswer = () => {
+    if (checked && marked) {
+      nextQuestion();
+    } else {
+      setMark(true);
+      setFlipped(true);
+      setChecked(true);
+    }
   };
 
-  // Следующая карточка
-  const nextCard = () => {
+  const canFlipCard = () => {
+    if (checked) setFlipped(!flipped);
+  };
+
+  const markAnswer = () => {
+    setMarked(true);
+    console.log(marked);
+  };
+
+  const nextQuestion = () => {
     setActiveCard(activeCard + 1);
-    setChecked(!checked);
-    setFlipped(!flipped);
+    setFlipped(false);
+    setMark(false);
+    setMarked(false);
+    setChecked(false);
+    setSuccess(false);
+    setFail(false);
+  };
+
+  const successBtn = () => {
+    setSuccess(true);
+    setFail(false);
+    markAnswer();
+  };
+
+  const failBtn = () => {
+    setFail(true);
+    setSuccess(false);
+    markAnswer();
   };
 
   return (
@@ -137,47 +171,55 @@ export const CardTopic = ({ id }) => {
             answer={card.cards[activeCard].answer}
             flipped={flipped}
             style={{ flex: "1" }}
+            onClick={canFlipCard}
           />
         ) : (
           <div>карточки кончились</div>
         )}
 
-        {flipped && (
-          <div className="buttons-wrapper">
-            <Button
-              size="l"
-              mode="outline"
-              before={<Icon24ThumbsDownOutline />}
-              onClick={() => nextCard()}
-            >
-              Чет не вывез
-            </Button>
+        {mark && (
+          <>
+            <div className="buttons-title">Как вопрос, норм или треш?</div>
+            <div className="buttons-wrapper">
+              <Button
+                size="l"
+                mode="outline"
+                before={<Icon24ThumbsDownOutline />}
+                activated={fail}
+                activeClassName={"btnActive"}
+                hoverClassName={"btnHover"}
+                onClick={() => failBtn()}
+              >
+                Чет не вывез
+              </Button>
 
-            <Button
-              size="l"
-              activated="true"
-              activeClassName="btnActive"
-              mode="outline"
-              before={<Icon24ThumbsUpOutline />}
-              onClick={() => nextCard()}
-            >
-              Вкатил с лету
-            </Button>
-          </div>
+              <Button
+                size="l"
+                mode="outline"
+                activated={success}
+                activeClassName={"btnActive"}
+                hoverClassName={"btnHover"}
+                before={<Icon24ThumbsUpOutline />}
+                onClick={() => successBtn()}
+              >
+                Го сложнее
+              </Button>
+            </div>
+          </>
         )}
 
         <div className="check-button">
           <Button
-            disabled={checked}
             style={{
               flex: "2",
               background: appearance == "light" ? "#2D81E0" : "#529EF4",
             }}
             size="l"
             stretched={true}
-            onClick={() => checkCard()}
+            disabled={mark && !marked}
+            onClick={checkOrNextAnswer}
           >
-            {flipped == true ? "Далее" : "Проверить"}
+            {checked ? "Далее" : "Проверить"}
           </Button>
         </div>
       </div>

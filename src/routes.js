@@ -29,14 +29,15 @@ export const routes = RoutesConfig.create([
         `/${DEFAULT_VIEW_PANELS.PERSIK}`,
         []
       ),
-      createPanel(
-        DEFAULT_VIEW_PANELS.CARDS,
-        `/${DEFAULT_VIEW_PANELS.CARDS}`,
-        []
-      ),
+
       createPanel(
         DEFAULT_VIEW_PANELS.TESTS,
         `/${DEFAULT_VIEW_PANELS.TESTS}`,
+        []
+      ),
+      createPanel(
+        DEFAULT_VIEW_PANELS.CARDS,
+        `/${DEFAULT_VIEW_PANELS.CARDS}`,
         []
       ),
       createPanel(

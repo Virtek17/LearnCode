@@ -6,14 +6,14 @@
   align-items: center;
   position: relative;
   padding: 0;
-  width: calc(342px + 36px);
-  height: calc(400px + 36px);
+  width: calc(322px + 36px);
+  height: calc(360px + 36px);
   box-sizing: border-box;
 }
 
 /* Задает размер карточки */
 .card {
-  aspect-ratio: 342/400;
+  aspect-ratio: 322/360;
   width: 100%;
   height: 100%;
   border-radius: 10px;

@@ -15,15 +15,22 @@
 
 .check-button {
   width: 100%;
-  
 }
 
 .btn {
-  display: flex;
-  gap: 12px;
+  border-color: #2688EB;
 }
 
 .btnActive {
-  background-color: #bf49e7;
-  
+  background-color: #2688EB;
+}
+
+.btnHover {
+  background-color: #4c6e8f;
+  outline-color: red;
+  fill: red;
+}
+
+.buttons-title {
+  color: #99A2AD;
 }
