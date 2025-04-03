@@ -20,33 +20,34 @@ const MyTabbar = () => {
   return (
     <>
       <TabbarItem
-        label="Главная"
         selected={location.pathname === "/"}
         onClick={() => routeNavigator.go("/")}
+        text="Главная"
       >
         <Icon28HomeOutline fill="currentColor" />
       </TabbarItem>
 
       <TabbarItem
-        label="Тесты"
         selected={location.pathname === "/tests"}
         onClick={() => routeNavigator.go("/tests")}
+        text="Тесты"
       >
         <Icon28PenStackOutline fill="currentColor" />
       </TabbarItem>
 
       <TabbarItem
-        label="Карточки"
         selected={location.pathname.startsWith("/cards")}
         onClick={() => routeNavigator.go("/cards")}
-      >
+        text="Карточки"
+        >
         <Icon28Cards2Outline fill="currentColor" />
       </TabbarItem>
 
       <TabbarItem
-        label="Теория"
+        
         selected={location.pathname === "/theory"}
         onClick={() => routeNavigator.go("/theory")}
+        text="Теория"
       >
         <Icon28BookSpreadOutline fill="currentColor" />
       </TabbarItem>

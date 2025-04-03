@@ -4,6 +4,7 @@ import MyTabbar from "../Components/Tabbar/MyTabbar";
 import Title from "../Components/Title/Title";
 import FlexContainer from "../Components/FlexContainer/FlexContainer";
 import Tile from "../Components/Tile/Tile";
+import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
 export const Theory = ({ id }) => {
   const listTheoryLanguage = [
@@ -14,6 +15,7 @@ export const Theory = ({ id }) => {
     { title: "Vue", text: "Фреймворк js" },
     { title: "SCSS", text: "Фреймворк CSS" },
   ];
+  const routeNavigator = useRouteNavigator();
 
   return (
     <Panel id={id}>
@@ -22,7 +24,7 @@ export const Theory = ({ id }) => {
 
       <FlexContainer>
         {listTheoryLanguage.map(({ title, text }) => (
-          <Tile key={title} title={title} text={text} />
+          <Tile key={title} title={title} text={text} onClick={() => routeNavigator.go(`/theoryTopic/${title}`)}/>
         ))}
       </FlexContainer>
 

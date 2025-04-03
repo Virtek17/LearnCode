@@ -3,7 +3,7 @@ import bridge from "@vkontakte/vk-bridge";
 import { View, SplitLayout, SplitCol, ScreenSpinner } from "@vkontakte/vkui";
 import { useActiveVkuiLocation } from "@vkontakte/vk-mini-apps-router";
 
-import { Persik, Home, Cards, Tests, Theory, CardTopic } from "./panels";
+import { Persik, Home, Cards, Tests, Theory, CardTopic, TheoryTopic } from "./panels";
 import { DEFAULT_VIEW_PANELS } from "./routes";
 
 export const App = () => {
@@ -31,6 +31,7 @@ export const App = () => {
           <Tests id="tests" />
           <Theory id="theory" />
           <CardTopic id="cardTopic" />
+          <TheoryTopic id="theoryTopic"/>
         </View>
       </SplitCol>
     </SplitLayout>

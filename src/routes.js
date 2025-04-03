@@ -17,6 +17,7 @@ export const DEFAULT_VIEW_PANELS = {
   TESTS: "tests",
   THEORY: "theory",
   CARD_TOPIC: "cardTopic",
+  THEORY_TOPIC: "theoryTopic"
 };
 
 export const routes = RoutesConfig.create([
@@ -48,6 +49,11 @@ export const routes = RoutesConfig.create([
       createPanel(
         DEFAULT_VIEW_PANELS.CARD_TOPIC,
         `/${DEFAULT_VIEW_PANELS.CARD_TOPIC}/:topic`,
+        []
+      ),
+      createPanel(
+        DEFAULT_VIEW_PANELS.THEORY_TOPIC,
+        `/${DEFAULT_VIEW_PANELS.THEORY_TOPIC}/:topic`,
         []
       ),
     ]),
