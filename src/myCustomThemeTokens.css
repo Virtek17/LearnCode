@@ -1,0 +1,30 @@
+.myCustomThemeTokens--light {
+  --vkui--color_background: #f5f5f5;
+  --vkui--color_text_primary: #1f1f24;
+
+  /* #4848FF */
+  /* #55545B */
+}
+
+.myCustomThemeTokens--dark {
+  /* Фон и основной текст */
+  --vkui--color_background: #0d0e12;
+  --vkui--color_text_primary: #f5f9ff;
+
+  /* Таббар */
+  --vkui--vkontakte_color_tabbar_active_icon: #447bba;
+  --vkui--color_tabbar_text_inactive: #a0abe9;
+  --vkui--color_text_accent_themed: #f5f9ff;
+  --vkui--color_background_tertiary: #121217;
+
+  /* Иконки таббара */
+  --vkui--color_icon_secondary: #a0abe9;
+  --vkui--color_icon_accent_themed: #f5f9ff;
+
+  --vkui--color_background_accent_themed: #6767f5;
+
+  --vkui--color_background_content: #121217;
+
+  /* #6767F5 */
+  /* #D3DDFF */
+}
