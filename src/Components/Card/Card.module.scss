@@ -37,10 +37,10 @@
   // темная тема
   &__dark { 
     border: 1px solid #909499;
-    background-color: var( --card-dark-bg);
+    background-color: #181725;
 
     .card__title {
-      color: var(--card-dark-title)
+      color: #F5F9FF
     }
   }
 
@@ -62,7 +62,7 @@
   }
 
   &__number {
-    color: var(--card-numeric);
+    color: #6767F5;
     font-size: 20px;
   }
 }
@@ -73,7 +73,7 @@
 }
 
 .question {
-  color: #6d7885;
+  color: #D4CDFF;
   font-size: 16px;
 }
 
@@ -100,7 +100,7 @@
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   
   padding: 18px;

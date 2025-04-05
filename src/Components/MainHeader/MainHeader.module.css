@@ -15,12 +15,10 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--color-warning);
 }
 
 .place {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--color-place);
 }
