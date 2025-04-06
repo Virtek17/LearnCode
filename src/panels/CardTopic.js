@@ -212,7 +212,6 @@ export const CardTopic = ({ id }) => {
           <Button
             style={{
               flex: "2",
-              background: appearance == "light" ? "#2D81E0" : "#529EF4",
             }}
             size="l"
             stretched={true}

@@ -1,20 +1,20 @@
 :root {
   /* Акценты */
-  --color-success: #4cd964;
-  --color-: #ab9871;
-  --color-: #adb8ff;
-  --color-error: #eb4250;
-  --color-warning: #ffa000;
+  --color-dark-page: #0D0E12;
+  --color-dark-content: #181725;
+  --color-dark-content--head: #212031;
+  --color-dark-content--body: #1A1925;
+  --color-dark-accent: #6767F5;
+  --color-dark-text--primary: #F5F9FF;
+  --color-dark-text--secondary: #D4CDFF;
+  --color-dark-text--tetritary: #A297FA;
 
-  --card-light-bg: #ffffff;
-  --card-light-title: #000000;
-  --card-light-question: #6d7885;
-  --card-light-answer: #909499;
-
-  --card-dark-bg: #19191a;
-  --card-dark-title: #e1e3e6;
-  --card-dark-question: #6d7885;
-  --card-dark-answer: #909499;
-
-  --card-numeric: #5d5f61;
+  --color-light-page: #FBFBFB;
+  --color-light-conten: #FFFFFF;
+  --color-light-modal--head: #FBFBFB;
+  --color-light-modal--body: #FFFFFF;
+  --color-light-accent: #4848FF;
+  --color-light-text--primary: #000000;
+  --color-light-text--secondary: #5E5E5E;
+  --color-light-text--tetritary: #919191;
 }
