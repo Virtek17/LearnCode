@@ -2,6 +2,56 @@
 
 .select {
   padding: 25px 10px;
-
+  border-radius: 10px;
   background-color: var(--color-dark-content);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 60px;
+  }
+
+
+  &__preview {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+  &__accent {
+    color: var(--color-dark-accent);
+  }
+
+  &__icon {
+    transition: all 0.2s ease;
+      
+    &_active {
+      transform: rotate(180deg);
+    }
+  }
+  
+  &__content {
+    display: none;
+    transition: all 0.2s ease;
+
+    &_view {
+      display: block;
+    }
+
+    &_row {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
 }

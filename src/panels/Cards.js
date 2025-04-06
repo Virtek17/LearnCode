@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
 import Tile from "../Components/Tile/Tile";
 import Title from "../Components/Title/Title";
-import FlexContainer from "../Components/FlexContainer/FlexContainer";
+import MainContainer from "../Components/MainContainer/MainContainer";
 import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
 export const Cards = ({ id }) => {
@@ -35,7 +35,7 @@ export const Cards = ({ id }) => {
       <PanelHeader>Карточки</PanelHeader>
       <Title title="Выбери язык программирования" />
 
-      <FlexContainer>
+      <MainContainer>
         {tiles.map(({ title, text, countAllCards, countFinishCards }) => (
           <Tile
             key={title}
@@ -46,7 +46,7 @@ export const Cards = ({ id }) => {
             onClick={() => routeNavigator.go(`/cardTopic/${title}`)}
           />
         ))}
-      </FlexContainer>
+      </MainContainer>
 
       <Tabbar>
         <MyTabbar />

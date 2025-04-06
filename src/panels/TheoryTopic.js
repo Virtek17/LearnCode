@@ -3,12 +3,24 @@ import { FormItem, Panel, PanelHeader, Tabbar } from "@vkontakte/vkui";
 import { useParams } from "@vkontakte/vk-mini-apps-router";
 import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
-import FlexContainer from "../Components/FlexContainer/FlexContainer";
+import MainContainer from "../Components/MainContainer/MainContainer";
 import Select from "../Components/Select/Select";
+
+import {
+  Icon28FavoriteOutline,
+  Icon28BracketsSlashSquareOutline,
+  Icon28PictureStackOutline,
+} from "@vkontakte/icons";
+import { useState } from "react";
 
 export const TheoryTopic = ({ id }) => {
   // const routeNavigator = useRouteNavigator();
   const { topic } = useParams(); // Получаем тему из URL
+  const [activeSelect, setActiveSelect] = useState(null);
+
+  const toggleSelect = (id) => {
+    setActiveSelect((prevState) => (prevState === id ? null : id)); // Закрывает текущий, если он был открыт, или открывает новый
+  };
 
   const theoryForTopic = [
     {
@@ -94,9 +106,29 @@ export const TheoryTopic = ({ id }) => {
           <h1>{theory.title}</h1>
         </div>
       )}
-      <FlexContainer>
-        <Select placeholder="placeholder" />
-      </FlexContainer>
+      <MainContainer>
+        <Select
+          id="select1"
+          placeholder="Основы"
+          icon={<Icon28FavoriteOutline />}
+          active={activeSelect === "select1"}
+          onToggle={() => toggleSelect("select1")}
+        />
+        <Select
+          id="select2"
+          placeholder="Семмантика"
+          icon={<Icon28BracketsSlashSquareOutline />}
+          active={activeSelect === "select2"}
+          onToggle={() => toggleSelect("select2")}
+        />
+        <Select
+          id="select3"
+          placeholder="Изображения"
+          icon={<Icon28PictureStackOutline />}
+          active={activeSelect === "select3"}
+          onToggle={() => toggleSelect("select3")}
+        />
+      </MainContainer>
       <Tabbar>
         <MyTabbar />
       </Tabbar>

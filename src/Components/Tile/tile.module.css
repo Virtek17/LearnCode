@@ -1,10 +1,9 @@
 :root {
-  --color-subtitle: #6D7885; 
+  --color-subtitle: #6d7885;
 }
 
 .root {
-  width: calc(100% - 60px);
-  margin-left: 20px;
+  width: calc(100% - 18px);
   display: flex;
   position: relative;
   cursor: pointer;
@@ -22,7 +21,6 @@
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
-  
 }
 
 .text {

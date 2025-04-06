@@ -2,7 +2,7 @@ import { Panel, Tabbar, PanelHeader } from "@vkontakte/vkui";
 import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
 import Title from "../Components/Title/Title";
-import FlexContainer from "../Components/FlexContainer/FlexContainer";
+import MainContainer from "../Components/MainContainer/MainContainer";
 import Tile from "../Components/Tile/Tile";
 import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
@@ -22,11 +22,16 @@ export const Theory = ({ id }) => {
       <PanelHeader>Теория</PanelHeader>
       <Title title="Выбери язык программирования" />
 
-      <FlexContainer>
+      <MainContainer>
         {listTheoryLanguage.map(({ title, text }) => (
-          <Tile key={title} title={title} text={text} onClick={() => routeNavigator.go(`/theoryTopic/${title}`)}/>
+          <Tile
+            key={title}
+            title={title}
+            text={text}
+            onClick={() => routeNavigator.go(`/theoryTopic/${title}`)}
+          />
         ))}
-      </FlexContainer>
+      </MainContainer>
 
       <Tabbar>
         <MyTabbar />

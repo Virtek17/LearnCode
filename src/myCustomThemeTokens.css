@@ -21,18 +21,17 @@
   --vkui--color_icon_accent_themed: var(--color-dark-text--primary);
 
   --vkui--color_background_accent_themed: var(--color-dark-accent);
-  --vkui--color_background_accent_themed--hover: var(--colro-dark-btn-primary--hover);
-  --vkui--color_background_accent_themed--active: var(--colro-dark-btn-primary--hover);
+  --vkui--color_background_accent_themed--hover: var(
+    --colro-dark-btn-primary--hover
+  );
+  --vkui--color_background_accent_themed--active: var(
+    --colro-dark-btn-primary--hover
+  );
 
   --vkui--color_stroke_accent_themed: var(--colro-dark-btn-stroke);
-
-
 
   --vkui--color_field_background: var(--color-dark-content);
   --vkui--color_background_secondary: red;
 
-
   --vkui--color_background_content: var(--color-dark-content);
-
-
 }
