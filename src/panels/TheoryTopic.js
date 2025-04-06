@@ -1,9 +1,10 @@
-import { FormItem, Panel, PanelHeader, Select, Tabbar } from "@vkontakte/vkui";
+import { FormItem, Panel, PanelHeader, Tabbar } from "@vkontakte/vkui";
 // import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
-import {useParams } from "@vkontakte/vk-mini-apps-router";
+import { useParams } from "@vkontakte/vk-mini-apps-router";
 import PropTypes from "prop-types";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
 import FlexContainer from "../Components/FlexContainer/FlexContainer";
+import Select from "../Components/Select/Select";
 
 export const TheoryTopic = ({ id }) => {
   // const routeNavigator = useRouteNavigator();
@@ -81,29 +82,24 @@ export const TheoryTopic = ({ id }) => {
   const theory = theoryForTopic.find((item) => item.title === topic);
 
   if (!theory) {
-    return <div>Теории по теме нет</div>
+    return <div>Теории по теме нет</div>;
   }
 
   return (
     <Panel id={id}>
-        <PanelHeader>Теория по {theory.title}</PanelHeader>
+      <PanelHeader>Теория по {theory.title}</PanelHeader>
 
-        {theory && (
-          <div>
-            <h1>{theory.title}</h1>
-          </div>
-         
-        )}
-        <FormItem>
-          <Select 
-            id="select-id"
-            placeholder="Не выбран"
-            options={["1", "1","1"]}
-          />
-        </FormItem>
-        <Tabbar>
+      {theory && (
+        <div>
+          <h1>{theory.title}</h1>
+        </div>
+      )}
+      <FlexContainer>
+        <Select placeholder="placeholder" />
+      </FlexContainer>
+      <Tabbar>
         <MyTabbar />
-        </Tabbar>
+      </Tabbar>
     </Panel>
   );
 };

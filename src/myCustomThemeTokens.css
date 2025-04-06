@@ -8,31 +8,31 @@
 
 .myCustomThemeTokens--dark {
   /* Фон и основной текст */
-  --vkui--color_background: #0d0e12;
-  --vkui--color_text_primary: #f5f9ff;
+  --vkui--color_background: var(--color-dark-page);
+  --vkui--color_text_primary: var(--color-dark-text--primary);
 
   /* Таббар */
-  --vkui--vkontakte_color_tabbar_active_icon: #447bba;
-  --vkui--color_tabbar_text_inactive: #a0abe9;
-  --vkui--color_text_accent_themed: #f5f9ff;
-  --vkui--color_background_tertiary: #121217;
+  --vkui--color_tabbar_text_inactive: var(--color-dark-text--tetritary);
+  --vkui--color_text_accent_themed: var(--color-dark-text--primary);
+  --vkui--color_background_tertiary: var(--color-dark-content);
 
   /* Иконки таббара */
-  --vkui--color_icon_secondary: #a0abe9;
-  --vkui--color_icon_accent_themed: #f5f9ff;
+  --vkui--color_icon_secondary: var(--color-dark-text--tetritary);
+  --vkui--color_icon_accent_themed: var(--color-dark-text--primary);
 
-  --vkui--color_background_accent_themed: #6767f5;
-  --vkui--color_background_accent_themed--hover: #4C49A8;
-  --vkui--color_background_accent_themed--active: #4C49A8;
+  --vkui--color_background_accent_themed: var(--color-dark-accent);
+  --vkui--color_background_accent_themed--hover: var(--colro-dark-btn-primary--hover);
+  --vkui--color_background_accent_themed--active: var(--colro-dark-btn-primary--hover);
 
-  --vkui--color_stroke_accent_themed: #D4CDFF;
+  --vkui--color_stroke_accent_themed: var(--colro-dark-btn-stroke);
 
 
 
-  --vkui--color_background_content: #181725;
+  --vkui--color_field_background: var(--color-dark-content);
+  --vkui--color_background_secondary: red;
 
-  --vkuiIcon: 
 
-  /* #6767F5 */
-  /* #D3DDFF */
+  --vkui--color_background_content: var(--color-dark-content);
+
+
 }
