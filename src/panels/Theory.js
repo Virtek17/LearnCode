@@ -8,8 +8,8 @@ import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
 export const Theory = ({ id }) => {
   const listTheoryLanguage = [
-    { title: "html", text: "Структура веб страницы" },
-    { title: "css", text: "Стили и оформление" },
+    { title: "HTML", text: "Структура веб страницы" },
+    { title: "CSS", text: "Стили и оформление" },
     { title: "JavaScript", text: "DOM и интерактивность" },
     { title: "React", text: "Фреймворк js" },
     { title: "Vue", text: "Фреймворк js" },

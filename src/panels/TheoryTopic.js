@@ -27,7 +27,7 @@ export const TheoryTopic = ({ id }) => {
 
   const theoryForTopic = [
     {
-      title: "html",
+      title: "HTML",
       thems: [
         {
           title: "Основы",
@@ -117,7 +117,7 @@ export const TheoryTopic = ({ id }) => {
       ],
     },
     {
-      title: "css",
+      title: "CSS",
       thems: [
         {
           title: "Позиционирование",
