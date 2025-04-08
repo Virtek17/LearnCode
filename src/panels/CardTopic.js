@@ -82,7 +82,7 @@ export const CardTopic = ({ id }) => {
       ],
     },
     {
-      title: "js",
+      title: "JavaScript",
       cards: [
         {
           question: "Что такое JS?",
@@ -186,7 +186,8 @@ export const CardTopic = ({ id }) => {
                 mode="outline"
                 before={<Icon24ThumbsDownOutline />}
                 activated={fail}
-                activeClassName={"btnActive"}
+                activeEffectDelay="5"
+                activeMode={"btnActive"}
                 hoverClassName={"btnHover"}
                 onClick={() => failBtn()}
               >
@@ -197,7 +198,8 @@ export const CardTopic = ({ id }) => {
                 size="l"
                 mode="outline"
                 activated={success}
-                activeClassName={"btnActive"}
+                activeMode={"btnActive"}
+                activeEffectDelay="5"
                 hoverClassName={"btnHover"}
                 before={<Icon24ThumbsUpOutline />}
                 onClick={() => successBtn()}

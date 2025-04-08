@@ -34,4 +34,17 @@
   --vkui--color_background_secondary: red;
 
   --vkui--color_background_content: var(--color-dark-content);
+
+  --vkui--size_border--regular: 0;
+}
+
+.vkuiPanelHeader__in::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  margin-left: 18px;
+  border-radius: 30px;
+  width: calc(100% - 36px);
+  height: 1.5px;
+  background-color: var(--color-light-text--secondary);
 }

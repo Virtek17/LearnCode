@@ -12,6 +12,9 @@ import {
   Icon28PictureStackOutline,
 } from "@vkontakte/icons";
 import { useState } from "react";
+import SelectItem from "../Components/SelectItem/SelectItem";
+import { info } from "sass";
+import Title from "../Components/Title/Title";
 
 export const TheoryTopic = ({ id }) => {
   // const routeNavigator = useRouteNavigator();
@@ -25,73 +28,403 @@ export const TheoryTopic = ({ id }) => {
   const theoryForTopic = [
     {
       title: "html",
-      cards: [
+      thems: [
         {
-          question: "Что такое HTML?",
-          answer: "HTML — это язык разметки страниц.",
+          title: "Основы",
+          info: [
+            {
+              text: "div",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "p",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "span",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "img",
+              end: true,
+              tag: true,
+            },
+            {
+              text: "h1-h6",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "a",
+              end: false,
+              tag: true,
+            },
+          ],
         },
         {
-          question: "В какой тэг оборачивать шапку страницы?",
-          answer: "<header>",
+          title: "Семмантика",
+          info: [
+            {
+              text: "header",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "footer",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "main",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "section",
+              end: true,
+              tag: true,
+            },
+            {
+              text: "asside",
+              end: false,
+              tag: true,
+            },
+            {
+              text: "article",
+              end: false,
+              tag: true,
+            },
+          ],
         },
         {
-          question: "Для чего используется тэг <br>?",
-          answer: "<br> используется для переноса строки",
-        },
-        {
-          question: "Где прописывается подключение стилей?",
-          answer: "В тэге <head>",
-        },
-        {
-          question: "Что случится если написать <header> внутри <footer>",
-          answer: "Ничего не случится, но это семмантически не верно",
+          title: "Изображения",
+          info: [
+            {
+              text: "img",
+              end: true,
+              tag: true,
+            },
+            {
+              text: "picture",
+              end: false,
+              tag: true,
+            },
+          ],
         },
       ],
     },
     {
       title: "css",
-      cards: [
+      thems: [
         {
-          question: "Что такое CSS?",
-          answer: "CSS — это язык стилей для оформления страниц.",
+          title: "Позиционирование",
+          info: [
+            {
+              text: "position",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "top, left, right, bottom",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "z-index",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "inset",
+              end: false,
+              tag: false,
+            },
+          ],
         },
         {
-          question: "Каким свойством задается цвет текста?",
-          answer: "color",
+          title: "Flex box",
+          info: [
+            {
+              text: "flex",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-direction",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-flow",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-grow",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-shrink",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-wrap",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "order",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "flex-basis",
+              end: false,
+              tag: false,
+            },
+          ],
         },
         {
-          question: "Как выровнять блок по центру?",
-          answer: `Родительскому элементу задать следующие свойства: 
-          display: flex;
-          justify-content: space-between;
-          align-items: center;`,
+          title: "Выравнивание блоков",
+          info: [
+            {
+              text: "justify-content",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "justify-items",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "justify-self",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "align-content",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "align-items",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "align-self",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "gap",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "place-content",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "place-items",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "place-self",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "row-gap",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "column-gap",
+              end: false,
+              tag: false,
+            },
+          ],
+        },
+        {
+          title: "Размеры и отсупы",
+          info: [
+            {
+              text: "width",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "height",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "padding",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "margin",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "box-sizing",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "min()",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "max()",
+              end: false,
+              tag: false,
+            },
+          ],
+        },
+        {
+          title: "Видимость",
+          info: [
+            {
+              text: "opacity",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "visibility",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "clip",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "clip-path",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "will-change",
+              end: false,
+              tag: false,
+            },
+          ],
         },
       ],
     },
     {
-      title: "js",
-      cards: [
+      title: "JavaScript",
+      thems: [
         {
-          question: "Что такое JS?",
-          answer: "JS — это язык программирования для веба.",
+          title: "Основы",
+          info: [
+            {
+              text: "Переменные const, let, var",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "if...else",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "switch",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "while",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "for",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "функция",
+              end: false,
+              tag: false,
+            },
+          ],
         },
         {
-          question: "В чем отличие const от let?",
-          answer: "const нельзя изменить, а let можно",
+          title: "Типы данных",
+          info: [
+            {
+              text: "Число",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "Строка",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "Булев тип",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "undefined",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "null",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "Символ",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "Преобразование типов",
+              end: false,
+              tag: false,
+            },
+          ],
         },
         {
-          question: "Как сделать бесконечный цикл?",
-          answer: "white(true)",
-        },
-        {
-          question: "Как подключить JavaScript файл к старанице?",
-          answer: "В <head> написать <script src='путь до файла'><srcipt/>",
+          title: "Обмен данными с API",
+          info: [
+            {
+              text: "fetch()",
+              end: false,
+              tag: false,
+            },
+            {
+              text: "async/await",
+              end: false,
+              tag: false,
+            },
+          ],
         },
       ],
     },
   ];
 
   const theory = theoryForTopic.find((item) => item.title === topic);
+  console.log(theory);
 
   if (!theory) {
     return <div>Теории по теме нет</div>;
@@ -101,20 +434,24 @@ export const TheoryTopic = ({ id }) => {
     <Panel id={id}>
       <PanelHeader>Теория по {theory.title}</PanelHeader>
 
-      {theory && (
-        <div>
-          <h1>{theory.title}</h1>
-        </div>
-      )}
+      {theory && <Title title={theory.title} />}
       <MainContainer>
-        <Select
-          id="select1"
-          placeholder="Основы"
-          icon={<Icon28FavoriteOutline />}
-          active={activeSelect === "select1"}
-          onToggle={() => toggleSelect("select1")}
-        />
-        <Select
+        {theory.thems.map(({ title, info }) => (
+          <Select
+            key={title}
+            id={title}
+            placeholder={title}
+            icon={<Icon28FavoriteOutline />}
+            active={activeSelect === title}
+            onToggle={() => toggleSelect(title)}
+          >
+            {info.map(({ text, end, tag, index }) => (
+              <SelectItem key={index} text={text} end={end} tag={tag} />
+            ))}
+          </Select>
+        ))}
+
+        {/* <Select
           id="select2"
           placeholder="Семмантика"
           icon={<Icon28BracketsSlashSquareOutline />}
@@ -127,7 +464,7 @@ export const TheoryTopic = ({ id }) => {
           icon={<Icon28PictureStackOutline />}
           active={activeSelect === "select3"}
           onToggle={() => toggleSelect("select3")}
-        />
+        /> */}
       </MainContainer>
       <Tabbar>
         <MyTabbar />

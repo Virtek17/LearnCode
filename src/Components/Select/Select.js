@@ -3,8 +3,9 @@ import style from "./select.module.scss";
 import clsx from "clsx";
 import { Icon28ChevronDownOutline } from "@vkontakte/icons";
 import SelectItem from "../SelectItem/SelectItem";
+import { Children } from "react";
 
-const Select = ({ id, placeholder, icon, active, onToggle }) => {
+const Select = ({ placeholder, icon, active, onToggle, children }) => {
   return (
     <div className={style.select} onClick={onToggle}>
       <div className={style.select__preview}>
@@ -26,11 +27,7 @@ const Select = ({ id, placeholder, icon, active, onToggle }) => {
           [style.select__content_view]: active,
         })}
       >
-        <div className={style.select__content_row}>
-          <SelectItem text="table" />
-          <SelectItem text="thead" />
-          <SelectItem text="tbody" />
-        </div>
+        <div className={style.select__content_row}>{children}</div>
       </div>
     </div>
   );

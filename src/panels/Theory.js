@@ -10,7 +10,7 @@ export const Theory = ({ id }) => {
   const listTheoryLanguage = [
     { title: "html", text: "Структура веб страницы" },
     { title: "css", text: "Стили и оформление" },
-    { title: "js", text: "DOM и интерактивность" },
+    { title: "JavaScript", text: "DOM и интерактивность" },
     { title: "React", text: "Фреймворк js" },
     { title: "Vue", text: "Фреймворк js" },
     { title: "SCSS", text: "Фреймворк CSS" },

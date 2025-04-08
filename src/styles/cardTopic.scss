@@ -18,9 +18,14 @@
 }
 
 .btnHover {
-  background-color: #6767F5;
+  background-color: var(--colro-dark-btn-stroke--hover);
 }
 
+.btnActive {
+  background-color: #6767F5;
+  
+}
+ 
 .buttons-title {
   color: #99A2AD;
 }

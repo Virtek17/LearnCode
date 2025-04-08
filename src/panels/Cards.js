@@ -21,7 +21,7 @@ export const Cards = ({ id }) => {
       countFinishCards: 50,
     },
     {
-      title: "js",
+      title: "JavaScript",
       text: "DOM и интерактивность",
       countAllCards: 100,
       countFinishCards: 80,
