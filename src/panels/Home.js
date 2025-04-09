@@ -3,6 +3,7 @@ import { Panel, PanelHeader, Tabbar } from "@vkontakte/vkui";
 import PropTypes from "prop-types";
 import MainHeader from "../Components/MainHeader/MainHeader";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
+import MainContainer from "../Components/MainContainer/MainContainer";
 
 export const Home = ({ id }) => {
   // const routeNavigator = useRouteNavigator();
@@ -10,7 +11,10 @@ export const Home = ({ id }) => {
   return (
     <Panel id={id}>
       <PanelHeader>Главная</PanelHeader>
-      <MainHeader day={10} place={5} />
+
+      <MainContainer>
+        <MainHeader day={10} place={5} />
+      </MainContainer>
       <Tabbar>
         <MyTabbar />
       </Tabbar>
@@ -20,12 +24,4 @@ export const Home = ({ id }) => {
 
 Home.propTypes = {
   id: PropTypes.string.isRequired,
-  fetchedUser: PropTypes.shape({
-    photo_200: PropTypes.string,
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
-    city: PropTypes.shape({
-      title: PropTypes.string,
-    }),
-  }),
 };

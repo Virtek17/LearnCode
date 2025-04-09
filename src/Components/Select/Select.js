@@ -1,16 +1,42 @@
 import PropTypes from "prop-types";
 import style from "./select.module.scss";
 import clsx from "clsx";
-import { Icon28ChevronDownOutline } from "@vkontakte/icons";
-import SelectItem from "../SelectItem/SelectItem";
-import { Children } from "react";
+import {
+  Icon28ChevronDownOutline,
+  Icon24Fullscreen,
+  Icon28PictureStackOutline,
+  Icon28BracketsSlashSquareOutline,
+  Icon28FavoriteOutline,
+  Icon24GhostOutline,
+  Icon24Poll,
+  Icon24Squareshape3VerticalOutline,
+  Icon24LocationMapOutline,
+  Icon24SortHorizontalOutline,
+  Icon24DocumentTextOutline,
+} from "@vkontakte/icons";
+import React from "react";
+
+const icons = {
+  Icon24Fullscreen,
+  Icon28PictureStackOutline,
+  Icon28BracketsSlashSquareOutline,
+  Icon28FavoriteOutline,
+  Icon24GhostOutline,
+  Icon24Poll,
+  Icon24Squareshape3VerticalOutline,
+  Icon24LocationMapOutline,
+  Icon24SortHorizontalOutline,
+  Icon24DocumentTextOutline,
+};
 
 const Select = ({ placeholder, icon, active, onToggle, children }) => {
   return (
     <div className={style.select} onClick={onToggle}>
       <div className={style.select__preview}>
         <div className={style.select__name}>
-          <span className={style.select__accent}>{icon}</span>
+          <span className={style.select__accent}>
+            {React.createElement(icons[icon])}
+          </span>
           {placeholder}
         </div>
         <div

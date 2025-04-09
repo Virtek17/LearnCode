@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import style from "./tile.module.css";
+import style from "./tile.module.scss";
 import { Group } from "@vkontakte/vkui";
 
 import kabanFrontend from "../../assets/Kabans/kaban-frontend.svg";
@@ -37,7 +37,7 @@ const Tile = ({ title, text, img, progress, maxProgress = null, onClick }) => {
   };
 
   return (
-    <Group className={style.root} onClick={() => onClick()}>
+    <div className={style.root} onClick={() => onClick()}>
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
         <div className={style.text}>{text}</div>
@@ -55,7 +55,7 @@ const Tile = ({ title, text, img, progress, maxProgress = null, onClick }) => {
           ></div>
         </div>
       )}
-    </Group>
+    </div>
   );
 };
 

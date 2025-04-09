@@ -13,7 +13,6 @@ import {
 } from "@vkontakte/icons";
 import { useState } from "react";
 import SelectItem from "../Components/SelectItem/SelectItem";
-import { info } from "sass";
 import Title from "../Components/Title/Title";
 
 export const TheoryTopic = ({ id }) => {
@@ -63,6 +62,7 @@ export const TheoryTopic = ({ id }) => {
               tag: true,
             },
           ],
+          icon: "Icon28FavoriteOutline",
         },
         {
           title: "Семмантика",
@@ -98,6 +98,7 @@ export const TheoryTopic = ({ id }) => {
               tag: true,
             },
           ],
+          icon: "Icon28BracketsSlashSquareOutline",
         },
         {
           title: "Изображения",
@@ -113,6 +114,7 @@ export const TheoryTopic = ({ id }) => {
               tag: true,
             },
           ],
+          icon: "Icon28PictureStackOutline",
         },
       ],
     },
@@ -143,6 +145,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24LocationMapOutline",
         },
         {
           title: "Flex box",
@@ -188,6 +191,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24Squareshape3VerticalOutline",
         },
         {
           title: "Выравнивание блоков",
@@ -253,6 +257,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24Poll",
         },
         {
           title: "Размеры и отсупы",
@@ -293,6 +298,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24Fullscreen",
         },
         {
           title: "Видимость",
@@ -323,6 +329,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24GhostOutline",
         },
       ],
     },
@@ -363,6 +370,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon28FavoriteOutline",
         },
         {
           title: "Типы данных",
@@ -403,6 +411,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24DocumentTextOutline",
         },
         {
           title: "Обмен данными с API",
@@ -418,6 +427,7 @@ export const TheoryTopic = ({ id }) => {
               tag: false,
             },
           ],
+          icon: "Icon24SortHorizontalOutline",
         },
       ],
     },
@@ -436,12 +446,12 @@ export const TheoryTopic = ({ id }) => {
 
       {theory && <Title title={theory.title} />}
       <MainContainer>
-        {theory.thems.map(({ title, info }) => (
+        {theory.thems.map(({ title, info, icon }) => (
           <Select
             key={title}
             id={title}
             placeholder={title}
-            icon={<Icon28FavoriteOutline />}
+            icon={icon}
             active={activeSelect === title}
             onToggle={() => toggleSelect(title)}
           >

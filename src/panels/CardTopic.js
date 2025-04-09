@@ -19,6 +19,7 @@ import PropTypes from "prop-types";
 import { Card } from "../Components/Card/Card";
 import { useState } from "react";
 import MyTabbar from "../Components/Tabbar/MyTabbar";
+import MainContainer from "../Components/MainContainer/MainContainer";
 
 // ИМПОРТЫ СТИЛЕЙ
 import "../styles/cardTopic.scss";
@@ -186,7 +187,6 @@ export const CardTopic = ({ id }) => {
                 mode="outline"
                 before={<Icon24ThumbsDownOutline />}
                 activated={fail}
-                activeEffectDelay="5"
                 activeMode={"btnActive"}
                 hoverClassName={"btnHover"}
                 onClick={() => failBtn()}

@@ -1,20 +1,23 @@
 import PropTypes from "prop-types";
-import style from "./MainHeader.module.css";
-import { Icon24CupOutline, Icon24Fire } from "@vkontakte/icons";
-import { Group } from "@vkontakte/vkui";
+import style from "./MainHeader.module.scss";
+import { Icon24CupOutline, Icon24FireAltOutline } from "@vkontakte/icons";
 
 const MainHeader = ({ day, place }) => {
   return (
-    <Group className={style.root}>
+    <div className={style.root}>
       <div className={style.days}>
-        <Icon24Fire />
+        <div className={style.icon}>
+          <Icon24FireAltOutline />
+        </div>
         {day} дней
       </div>
       <div className={style.place}>
-        <Icon24CupOutline />
+        <div className={style.icon}>
+          <Icon24CupOutline />
+        </div>
         {place} место
       </div>
-    </Group>
+    </div>
   );
 };
 
