@@ -13,18 +13,21 @@ export const Cards = ({ id }) => {
       text: "Структура веб страницы",
       countAllCards: 200,
       countFinishCards: 100,
+      img: "kabanAngry",
     },
     {
       title: "css",
       text: "Стили и оформление",
       countAllCards: 300,
       countFinishCards: 50,
+      img: "kabanBusy",
     },
     {
       title: "JavaScript",
       text: "DOM и интерактивность",
       countAllCards: 100,
       countFinishCards: 80,
+      img: "kabanRich",
     },
   ];
 
@@ -36,11 +39,12 @@ export const Cards = ({ id }) => {
       <Title title="Выбери язык программирования" />
 
       <MainContainer>
-        {tiles.map(({ title, text, countAllCards, countFinishCards }) => (
+        {tiles.map(({ title, text, img, countAllCards, countFinishCards }) => (
           <Tile
             key={title}
             title={title}
             text={text}
+            img={img}
             progress={countFinishCards}
             maxProgress={countAllCards}
             onClick={() => routeNavigator.go(`/cardTopic/${title}`)}

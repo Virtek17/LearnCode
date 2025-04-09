@@ -7,8 +7,12 @@ import Tile from "../Components/Tile/Tile";
 
 export const Tests = ({ id }) => {
   const directions = [
-    { title: "Frontend", text: "HTML, CSS, JavaScript" },
-    { title: "Backend", text: "C#, PHP" },
+    {
+      title: "Frontend",
+      text: "HTML, CSS, JavaScript",
+      img: "kabanFrontend",
+    },
+    { title: "Backend", text: "C#, PHP", img: "kabanBackend" },
   ];
 
   return (
@@ -16,8 +20,8 @@ export const Tests = ({ id }) => {
       <PanelHeader>Тесты</PanelHeader>
       <Title title={"Направления разработки"} />
       <MainContainer>
-        {directions.map(({ title, text }) => (
-          <Tile key={title} title={title} text={text} />
+        {directions.map(({ title, text, img }) => (
+          <Tile key={title} title={title} text={text} img={img} />
         ))}
       </MainContainer>
       <Tabbar>

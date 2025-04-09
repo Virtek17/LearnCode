@@ -6,7 +6,7 @@ import {
 } from "@vkontakte/vkui";
 import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 import PropTypes from "prop-types";
-import PersikImage from "../assets/Kabans/kaban-1.svg";
+import PersikImage from "../assets/Kabans/kaban-2.svg";
 
 export const Persik = ({ id }) => {
   const routeNavigator = useRouteNavigator();

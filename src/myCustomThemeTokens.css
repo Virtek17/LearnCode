@@ -60,3 +60,7 @@
 .vkuiInternalTabbar--layout-horizontal .vkuiTabbarItem__text {
   margin-left: 0;
 }
+
+.vkuiTabbar {
+  height: 55px;
+}

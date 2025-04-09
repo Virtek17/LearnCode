@@ -3,9 +3,27 @@ import PropTypes from "prop-types";
 import style from "./tile.module.css";
 import { Group } from "@vkontakte/vkui";
 
-import kaban from "../../assets/Kabans/kaban-1.svg";
+import kabanFrontend from "../../assets/Kabans/kaban-frontend.svg";
+import kabanBackend from "../../assets/Kabans/kaban-backend.svg";
+import kabanThinking from "../../assets/Kabans/kaban-thinking.svg";
+import kabanAngry from "../../assets/Kabans/kaban-angry.svg";
+import kabanSmart from "../../assets/Kabans/kaban-smart.svg";
+import kabanStrong from "../../assets/Kabans/kaban-strong.svg";
+import kabanRich from "../../assets/Kabans/kaban-rich.svg";
+import kabanBusy from "../../assets/Kabans/kaban-busy.svg";
 
-const Tile = ({ title, text, progress, maxProgress = null, onClick }) => {
+const imgMap = {
+  kabanFrontend,
+  kabanBackend,
+  kabanThinking,
+  kabanAngry,
+  kabanSmart,
+  kabanStrong,
+  kabanRich,
+  kabanBusy,
+};
+
+const Tile = ({ title, text, img, progress, maxProgress = null, onClick }) => {
   const color = (progress, maxProgress) => {
     const procentDone = (parseInt(progress) / parseInt(maxProgress)) * 100;
 
@@ -23,7 +41,7 @@ const Tile = ({ title, text, progress, maxProgress = null, onClick }) => {
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
         <div className={style.text}>{text}</div>
-        <img src={kaban} className={style.img} />
+        <img src={imgMap[img]} className={style.img} />
       </div>
 
       {progress !== undefined && (
@@ -45,6 +63,7 @@ export default Tile;
 Tile.propTypes = {
   title: PropTypes.string.isRequired, // Ожидаем число, обязательный пропс
   text: PropTypes.string.isRequired, // Ожидаем число, обязательный пропс
+  img: PropTypes.string,
   progress: PropTypes.number,
   maxProgress: PropTypes.number,
   onClick: PropTypes.func,
