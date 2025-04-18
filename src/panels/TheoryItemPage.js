@@ -1,13 +1,24 @@
 import PropTypes from "prop-types";
 import { useParams } from "@vkontakte/vk-mini-apps-router";
-import { Panel, PanelHeader, Tabbar } from "@vkontakte/vkui";
+import {
+  Button,
+  Panel,
+  PanelHeader,
+  Tabbar,
+  useAppearance,
+} from "@vkontakte/vkui";
+import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
 import Markdown from "markdown-to-jsx";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
 
 import { useEffect } from "react";
+import { Icon24ChevronLeftOutline } from "@vkontakte/icons";
+import clsx from "clsx";
+
 import MyTabbar from "../Components/MyTabbar/MyTabbar";
+import "../styles/TheoryItemPage.css";
 
 // заглушка
 const mockTheoryByTopic = {
@@ -196,8 +207,11 @@ function = () => {
 };
 
 export const TheoryItemPage = ({ id }) => {
+  const appearance = useAppearance();
+
   const { topic } = useParams();
   const theory = mockTheoryByTopic[topic];
+  const routeNavigator = useRouteNavigator();
 
   useEffect(() => {
     document.querySelectorAll("pre code").forEach((block) => {
@@ -222,7 +236,23 @@ export const TheoryItemPage = ({ id }) => {
   return (
     <Panel id={id}>
       <PanelHeader>{theory.title}</PanelHeader>
+
       <div style={{ padding: 16 }}>
+        <div
+          className={clsx({
+            ["btn-back__light"]: appearance === "light",
+            ["btn-back__dark"]: appearance !== "light",
+          })}
+        >
+          <Button
+            onClick={() => routeNavigator.back()}
+            before={<Icon24ChevronLeftOutline />}
+            mode="link"
+            size="l"
+          >
+            <span className={clsx("btn")}>Назад</span>
+          </Button>
+        </div>
         <Markdown
           options={{
             overrides: {
