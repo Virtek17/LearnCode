@@ -1,34 +1,10 @@
 import PropTypes from "prop-types";
 import style from "./select.module.css";
 import clsx from "clsx";
-import {
-  Icon28ChevronDownOutline,
-  Icon24Fullscreen,
-  Icon28PictureStackOutline,
-  Icon28BracketsSlashSquareOutline,
-  Icon28FavoriteOutline,
-  Icon24GhostOutline,
-  Icon24Poll,
-  Icon24Squareshape3VerticalOutline,
-  Icon24LocationMapOutline,
-  Icon24SortHorizontalOutline,
-  Icon24DocumentTextOutline,
-} from "@vkontakte/icons";
+import { ICONS } from "../../utils/icons";
 import React from "react";
 import { useAppearance } from "@vkontakte/vk-bridge-react";
-
-const icons = {
-  Icon24Fullscreen,
-  Icon28PictureStackOutline,
-  Icon28BracketsSlashSquareOutline,
-  Icon28FavoriteOutline,
-  Icon24GhostOutline,
-  Icon24Poll,
-  Icon24Squareshape3VerticalOutline,
-  Icon24LocationMapOutline,
-  Icon24SortHorizontalOutline,
-  Icon24DocumentTextOutline,
-};
+import { Icon28ChevronDownOutline } from "@vkontakte/icons";
 
 const Select = ({ placeholder, icon, active, onToggle, children }) => {
   const appearance = useAppearance();
@@ -43,7 +19,7 @@ const Select = ({ placeholder, icon, active, onToggle, children }) => {
       <div className={style.select__preview}>
         <div className={style.select__name}>
           <span className={style.select__accent}>
-            {React.createElement(icons[icon])}
+            {React.createElement(ICONS[icon])}
           </span>
           {placeholder}
         </div>

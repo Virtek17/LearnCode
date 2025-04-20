@@ -6,3 +6,6 @@ export { Theory } from "./Theory";
 export { TheoryTopic } from "./TheoryTopic";
 export { TheoryItemPage } from "./TheoryItemPage";
 export { Tests } from "./Tests";
+export { TestDirection } from "./TestDirection";
+export { TestSubject } from "./TestSubject";
+export { TestTopic } from "./TestTopic";

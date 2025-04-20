@@ -12,6 +12,9 @@ import {
   TheoryTopic,
   TheoryItemPage,
   Tests,
+  TestDirection,
+  TestSubject,
+  TestTopic,
 } from "./panels";
 import { DEFAULT_VIEW_PANELS } from "./routes";
 
@@ -42,6 +45,9 @@ export const App = () => {
           <TheoryTopic id="theoryTopic" />
           <TheoryItemPage id="theoryItemPage" />
           <Tests id="tests" />
+          <TestDirection id="testDirection" />
+          <TestSubject id="testSubject" />
+          <TestTopic id="testTopic" />
         </View>
       </SplitCol>
       {popout}

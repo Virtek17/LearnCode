@@ -8,7 +8,7 @@
 }
 
 .title__light {
-  color: black;
+  color: var(--color-light-text--secondary);
 }
 
 .title__dark {

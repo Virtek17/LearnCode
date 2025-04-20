@@ -19,6 +19,9 @@ export const DEFAULT_VIEW_PANELS = {
   THEORY_TOPIC: "theoryTopic",
   THEORY_ITEM_PAGE: "theoryItemPage",
   TESTS: "tests",
+  TEST_DIRECTION: "testDirection",
+  TEST_SUBJECT: "testSubject",
+  TEST_TOPIC: "testTopic",
 };
 
 export const routes = RoutesConfig.create([
@@ -64,6 +67,23 @@ export const routes = RoutesConfig.create([
       createPanel(
         DEFAULT_VIEW_PANELS.TESTS,
         `/${DEFAULT_VIEW_PANELS.TESTS}`,
+        []
+      ),
+      createPanel(
+        DEFAULT_VIEW_PANELS.TEST_DIRECTION,
+        `/${DEFAULT_VIEW_PANELS.TEST_DIRECTION}/:topic`,
+        []
+      ),
+
+      createPanel(
+        DEFAULT_VIEW_PANELS.TEST_SUBJECT,
+        `/${DEFAULT_VIEW_PANELS.TEST_SUBJECT}/:topic`,
+        []
+      ),
+
+      createPanel(
+        DEFAULT_VIEW_PANELS.TEST_TOPIC,
+        `/${DEFAULT_VIEW_PANELS.TEST_TOPIC}/:topic`,
         []
       ),
     ]),

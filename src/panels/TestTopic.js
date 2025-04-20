@@ -4,10 +4,8 @@ import MyTabbar from "../Components/MyTabbar/MyTabbar";
 import Title from "../Components/Title/Title";
 import MainContainer from "../Components/MainContainer/MainContainer";
 import Tile from "../Components/Tile/Tile";
-import { useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
-export const Tests = ({ id }) => {
-  const routeNavigator = useRouteNavigator();
+export const TestTopic = ({ id }) => {
   const directions = [
     {
       title: "Frontend",
@@ -23,13 +21,7 @@ export const Tests = ({ id }) => {
       <Title title={"Направления разработки"} />
       <MainContainer>
         {directions.map(({ title, text, img }) => (
-          <Tile
-            key={title}
-            title={title}
-            text={text}
-            img={img}
-            onClick={() => routeNavigator.go(`/testDirection/${title}`)}
-          />
+          <Tile key={title} title={title} text={text} img={img} />
         ))}
       </MainContainer>
       <Tabbar>
@@ -39,6 +31,6 @@ export const Tests = ({ id }) => {
   );
 };
 
-Tests.propTypes = {
+TestTopic.propTypes = {
   id: PropTypes.string.isRequired,
 };

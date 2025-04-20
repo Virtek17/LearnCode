@@ -32,7 +32,6 @@ export const Cards = ({ id }) => {
   ];
 
   const routeNavigator = useRouteNavigator();
-
   return (
     <Panel id={id}>
       <PanelHeader>Карточки</PanelHeader>
