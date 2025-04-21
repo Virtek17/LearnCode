@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useAppearance } from "@vkontakte/vkui";
 import { Icon28LockOutline } from "@vkontakte/icons";
 
-const SimpleTile = ({ title, icon = true }) => {
+const SimpleTile = ({ title, block = true, onClick }) => {
   const appearance = useAppearance();
 
   return (
@@ -13,6 +13,7 @@ const SimpleTile = ({ title, icon = true }) => {
         [style.simpleTile__light]: appearance === "light",
         [style.simpleTile__dark]: appearance !== "light",
       })}
+      onClick={onClick}
     >
       <div
         className={clsx(style.title, {
@@ -22,7 +23,7 @@ const SimpleTile = ({ title, icon = true }) => {
       >
         {title}
       </div>
-      {icon && <Icon28LockOutline />}
+      {block && <Icon28LockOutline />}
     </div>
   );
 };
@@ -30,5 +31,6 @@ export default SimpleTile;
 
 SimpleTile.propTypes = {
   title: PropTypes.string,
-  icon: PropTypes.bool,
+  block: PropTypes.bool,
+  onClick: PropTypes.func,
 };

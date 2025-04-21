@@ -19,7 +19,6 @@ import { App } from "./App";
 
 export const AppConfig = () => {
   const vkBridgeAppearance = useAppearance() || undefined;
-  console.log("appearance:", vkBridgeAppearance); // <- временно добавь
   const vkBridgeInsets = useInsets() || undefined;
   const adaptivity = transformVKBridgeAdaptivity(useAdaptivity());
   const { vk_platform } = parseURLSearchParamsForGetLaunchParams(

@@ -77,8 +77,6 @@ export const TheoryTopic = ({ id }) => {
         ),
       }));
 
-      console.log("transformed: ", transformed);
-
       setTheoryData(transformed);
     };
 

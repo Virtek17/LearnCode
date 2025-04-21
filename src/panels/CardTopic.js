@@ -118,7 +118,6 @@ export const CardTopic = ({ id }) => {
 
   const markAnswer = () => {
     setMarked(true);
-    console.log(marked);
   };
 
   const nextQuestion = () => {

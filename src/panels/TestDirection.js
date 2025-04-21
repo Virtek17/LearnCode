@@ -4,10 +4,11 @@ import MyTabbar from "../Components/MyTabbar/MyTabbar";
 import Title from "../Components/Title/Title";
 import MainContainer from "../Components/MainContainer/MainContainer";
 import SimpleTile from "../Components/SimpleTile/SimpleTile";
-import { useParams } from "@vkontakte/vk-mini-apps-router";
+import { useParams, useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
 
 export const TestDirection = ({ id }) => {
   const { topic } = useParams(); // Получаем тему из URL
+  const routeNavigator = useRouteNavigator();
   const directions = [
     {
       direction: "Frontend",
@@ -54,7 +55,12 @@ export const TestDirection = ({ id }) => {
       <Title title={"Если шаришь - докажи, тогда пойдем дальше"} />
       <MainContainer>
         {needDirection.map(({ title, block }) => (
-          <SimpleTile key={title} title={title} icon={block} />
+          <SimpleTile
+            key={title}
+            title={title}
+            block={block}
+            onClick={() => routeNavigator.go(`/testSubject/${title}`)}
+          />
         ))}
       </MainContainer>
       <Tabbar>
