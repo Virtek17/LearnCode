@@ -1,13 +1,15 @@
-import { Panel, Tabbar, PanelHeader } from "@vkontakte/vkui";
+import { Panel, Tabbar, PanelHeader, Button } from "@vkontakte/vkui";
 import PropTypes from "prop-types";
 import MyTabbar from "../Components/MyTabbar/MyTabbar";
 import Title from "../Components/Title/Title";
 import MainContainer from "../Components/MainContainer/MainContainer";
 import SimpleTile from "../Components/SimpleTile/SimpleTile";
 import { useParams, useRouteNavigator } from "@vkontakte/vk-mini-apps-router";
+import { Icon24ChevronLeftOutline } from "@vkontakte/icons";
+import clsx from "clsx";
 
 export const TestSubject = ({ id }) => {
-  const { topic } = useParams(); // Получаем тему из URL
+  const { direction, subject } = useParams(); // Получаем тему из URL
   const routeNavigator = useRouteNavigator();
   const directions = [
     {
@@ -18,7 +20,7 @@ export const TestSubject = ({ id }) => {
     {
       title: "HTML",
       text: "Форматирование текста",
-      block: true,
+      block: false,
     },
     {
       title: "HTML",
@@ -72,24 +74,36 @@ export const TestSubject = ({ id }) => {
     },
   ];
 
-  const theme = directions.find((item) => item.title === topic);
-  const needDirection = directions.filter((item) => item.title === topic);
+  const theme = directions.find((item) => item.title === subject);
+  const needDirection = directions.filter((item) => item.title === subject);
 
   if (!theme) {
-    return <div>Тестов по {topic} нет</div>;
+    return <div>Тестов по {subject} нет</div>;
   }
 
   return (
     <Panel id={id}>
       <PanelHeader>Тесты</PanelHeader>
-      <Title title={`Тесты по ${topic}`} />
+      <Title title={`Тесты по ${subject}`} />
       <MainContainer>
+        <Button
+          onClick={() => routeNavigator.back()}
+          before={<Icon24ChevronLeftOutline />}
+          mode="link"
+          size="l"
+        >
+          <span className={clsx("btn")}>Назад</span>
+        </Button>
         {needDirection.map(({ text, block }) => (
           <SimpleTile
             key={text}
             title={text}
             block={block}
-            onClick={() => routeNavigator.go(`/testTopic/${text}`)}
+            onClick={() => {
+              if (!block) {
+                routeNavigator.push(`/tests/${direction}/${subject}/${text}`);
+              }
+            }}
           />
         ))}
       </MainContainer>

@@ -102,3 +102,10 @@ body::-webkit-scrollbar-thumb {
 .vkuiTabbar {
   height: 55px;
 }
+
+@media (max-width: 768px) {
+  .myCustomThemeTokens--dark .vkuiPanel .vkuiPanel__in,
+  .vkuiPanel:before {
+    background-color: var(--color-dark-page);
+  }
+}

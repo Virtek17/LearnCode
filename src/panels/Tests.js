@@ -28,7 +28,7 @@ export const Tests = ({ id }) => {
             title={title}
             text={text}
             img={img}
-            onClick={() => routeNavigator.go(`/testDirection/${title}`)}
+            onClick={() => routeNavigator.push(`/tests/${title}`)}
           />
         ))}
       </MainContainer>

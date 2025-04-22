@@ -41,7 +41,7 @@ export const TestCard = ({
 
   return (
     <div className={style.testCard}>
-      <span>Количество ошибок: {countUncorrectAnswer}</span>
+      {/* <span>Количество ошибок: {countUncorrectAnswer}</span> */}
       <div
         className={clsx(style.question, {
           [style.question__light]: appearance === "light",

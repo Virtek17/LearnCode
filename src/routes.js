@@ -64,26 +64,16 @@ export const routes = RoutesConfig.create([
         []
       ),
 
-      createPanel(
-        DEFAULT_VIEW_PANELS.TESTS,
-        `/${DEFAULT_VIEW_PANELS.TESTS}`,
-        []
-      ),
-      createPanel(
-        DEFAULT_VIEW_PANELS.TEST_DIRECTION,
-        `/${DEFAULT_VIEW_PANELS.TEST_DIRECTION}/:topic`,
-        []
-      ),
-
+      createPanel(DEFAULT_VIEW_PANELS.TESTS, "/tests", []),
+      createPanel(DEFAULT_VIEW_PANELS.TEST_DIRECTION, "/tests/:direction", []),
       createPanel(
         DEFAULT_VIEW_PANELS.TEST_SUBJECT,
-        `/${DEFAULT_VIEW_PANELS.TEST_SUBJECT}/:topic`,
+        "/tests/:direction/:subject",
         []
       ),
-
       createPanel(
         DEFAULT_VIEW_PANELS.TEST_TOPIC,
-        `/${DEFAULT_VIEW_PANELS.TEST_TOPIC}/:topic`,
+        "/tests/:direction/:subject/:topic",
         []
       ),
     ]),
